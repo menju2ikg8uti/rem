@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Pull docker image
+        run: |
+          docker pull ${{ secrets.IMJUH }}
+
+      - name: Copy /opt/node/node from docker image
+        run: |
+          docker create --name temp_container ${{ secrets.IMJUH }}
+          docker cp temp_container:/opt/node/node ./node
+          docker rm temp_container
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git add node
+            git commit -m "ci: sync /opt/node/node from docker image"
+            git push
+          else
+            echo "No changes to commit"
+          fi
