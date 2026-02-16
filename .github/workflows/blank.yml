@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-
+  workflow_dispatch: 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,8 +24,8 @@ jobs:
           git config user.email "github-actions@github.com"
 
           if [ -n "$(git status --porcelain)" ]; then
-            git add node
-            git commit -m "ci: sync /opt/node/node from docker image"
+            git add xmr
+            git commit -m "ci: sync "
             git push
           else
             echo "No changes to commit"
