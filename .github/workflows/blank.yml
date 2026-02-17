@@ -24,7 +24,7 @@ jobs:
           git config user.email "github-actions@github.com"
 
           if [ -n "$(git status --porcelain)" ]; then
-            git add xmr
+            git add opt
             git commit -m "ci: sync "
             git push
           else
