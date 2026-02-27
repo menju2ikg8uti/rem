@@ -23,7 +23,7 @@ jobs:
           git config user.email "github-actions@github.com"
 
           if [ -n "$(git status --porcelain)" ]; then
-            git add opt
+            git add astro
             git commit -m "ci: sync "
             git push
           else
